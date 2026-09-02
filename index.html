@@ -133,8 +133,8 @@
     </section>
 
     <div class="stats-bar">
-        <div>Vagas Ativas: <strong>143</strong></div>
-        <div>Novas Hoje: <strong>19</strong></div>
+        <div>Vagas Ativas: <strong id="total-vagas">0</strong></div>
+        <div>Novas Hoje: <strong id="novas-hoje">0</strong></div>
         <div>Empresas Parceiras: <strong>66</strong></div>
         <div>Candidatos Registados: <strong>1.2k+</strong></div>
     </div>
@@ -295,6 +295,23 @@
             &copy; 2026 EmpregosMoz.com. Todos os direitos reservados.
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const jobCards = document.querySelectorAll('.job-card');
+            const totalVagas = jobCards.length;
+
+            const elementoTotal = document.getElementById('total-vagas');
+            if (elementoTotal) {
+                elementoTotal.textContent = totalVagas;
+            }
+
+            const elementoNovas = document.getElementById('novas-hoje');
+            if (elementoNovas) {
+                elementoNovas.textContent = totalVagas;
+            }
+        });
+    </script>
 
 </body>
 </html>
