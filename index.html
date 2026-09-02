@@ -51,10 +51,8 @@
         .feed-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .feed-header h2 { font-size: 1.3rem; }
         
-        .job-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 15px; display: flex; flex-direction: column; gap: 15px; transition: all 0.2s; }
+        .job-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start; transition: all 0.2s; }
         .job-card:hover { border-color: var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-
-        .job-main-content { display: flex; gap: 20px; align-items: flex-start; width: 100%; }
         
         .company-badge { width: 55px; height: 55px; background: var(--light); border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--primary); flex-shrink: 0; }
         
@@ -69,18 +67,8 @@
 
         .job-action { text-align: right; display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 80px; }
         .time-ago { font-size: 0.8rem; color: var(--gray); }
-        
-        .btn-group { display: flex; gap: 8px; align-items: center; justify-content: flex-end; }
         .btn-apply { background-color: var(--primary); color: #fff; padding: 6px 16px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block; }
         .btn-apply:hover { background-color: #004085; }
-        
-        .btn-toggle-details { background-color: #6c757d; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
-        .btn-toggle-details:hover { background-color: #5a6268; }
-
-        /* Área de detalhes expansíveis */
-        .job-extra-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--border); font-size: 0.9rem; color: #444; background-color: #fafbfc; padding: 15px; border-radius: 6px; }
-        .job-extra-details h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 6px; margin-top: 10px; }
-        .job-extra-details h4:first-child { margin-top: 0; }
 
         footer { background: var(--dark); color: #adb5bd; padding: 40px 5% 20px; margin-top: 50px; font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
@@ -94,8 +82,8 @@
             .search-form { grid-template-columns: 1fr; }
             .container { grid-template-columns: 1fr; }
             nav ul { display: none; }
-            .job-main-content { flex-direction: column; }
-            .job-action { text-align: left; flex-direction: row; align-items: center; margin-top: 10px; width: 100%; justify-content: space-between; }
+            .job-card { flex-direction: column; }
+            .job-action { text-align: left; flex-direction: row; align-items: center; margin-top: 10px; width: 100%; }
         }
     </style>
 </head>
@@ -179,148 +167,99 @@
 
             <!-- NOVA VAGA: Recepcionista - Bayport -->
             <article class="job-card">
-                <div class="job-main-content">
-                    <div class="company-badge" style="color: #0056b3;"><i class="fas fa-concierge-bell"></i></div>
-                    <div class="job-details">
-                        <div class="job-title">Recepcionista</div>
-                        <div class="company-name">Bayport Serviços Financeiros — Maputo</div>
-                        <div class="job-tags">
-                            <span><i class="fas fa-briefcase"></i> Interno / Externo</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
-                            <span><i class="fas fa-calendar-alt"></i> Até 15 Setembro 2026</span>
-                        </div>
-                        <div class="job-snippet">
-                            <strong>Responsabilidades:</strong> Gestão da recepção e atendimento ao cliente, registo de faturas e reconciliações mensais, gestão de correspondências...
-                        </div>
+                <div class="company-badge" style="color: #0056b3;"><i class="fas fa-concierge-bell"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Recepcionista</div>
+                    <div class="company-name">Bayport Serviços Financeiros — Maputo</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Interno / Externo</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
+                        <span><i class="fas fa-calendar-alt"></i> Até 15 Setembro 2026</span>
                     </div>
-                    <div class="job-action">
-                        <span class="time-ago">Novo</span>
-                        <div class="btn-group">
-                            <button class="btn-toggle-details" onclick="toggleDetails(this)">Ver Detalhes</button>
-                            <a href="mailto:hr.recrutamento@bayport.co.mz?subject=Nome%20do%20Candidato%20-%20Recepcionista" class="btn-apply">Candidatar-se</a>
-                        </div>
+                    <div class="job-snippet">
+                        <strong>Responsabilidades:</strong> Gestão da recepção e atendimento ao cliente, registo de faturas e reconciliações mensais, gestão de correspondências, controlo de envios e filtragem de chamadas.
                     </div>
                 </div>
-                <div class="job-extra-details">
-                    <h4>Responsabilidades Completas:</h4>
-                    <p>Acolher, atender e orientar clientes, visitantes, fornecedores e colaboradores. Registo de entrada de faturas e reconciliações mensais, gestão de correspondências, controlo de envios, formulários e marcação de salas de reuniões. Atender, filtrar e encaminhar chamadas telefónicas.</p>
-                    <h4>Requisitos:</h4>
-                    <p>Ensino Médio completo ou Grau de Licenciatura; Conhecimento básico de Excel e domínio do Microsoft Office; Excelente comunicação verbal e escrita; Bilingue (Português e Inglês); Experiência na função será uma vantagem.</p>
-                    <h4>Como Candidatar-se:</h4>
-                    <p>Submeter CV e certificados para <strong>hr.recrutamento@bayport.co.mz</strong> até 15 de Setembro de 2026[cite: 1].</p>
+                <div class="job-action">
+                    <span class="time-ago">Novo</span>
+                    <a href="detalhes-vaga.html?vaga=bayport-recepcionista" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
 
             <!-- NOVA VAGA: 2 Executivos(as) de Atendimento - Karingana -->
             <article class="job-card">
-                <div class="job-main-content">
-                    <div class="company-badge" style="color: #fd7e14;"><i class="fas fa-bullhorn"></i></div>
-                    <div class="job-details">
-                        <div class="job-title">2 Executivos(as) de Atendimento</div>
-                        <div class="company-name">Karinga – Agência de Comunicação — Maputo</div>
-                        <div class="job-tags">
-                            <span><i class="fas fa-briefcase"></i> Comunicação & Marketing</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
-                            <span><i class="fas fa-users"></i> Gestão de Contas</span>
-                        </div>
-                        <div class="job-snippet">
-                            <strong>Responsabilidades:</strong> Gestão diária de clientes, visão de negócio, harmonia interna e transformação de briefings em planos de ação.
-                        </div>
+                <div class="company-badge" style="color: #fd7e14;"><i class="fas fa-bullhorn"></i></div>
+                <div class="job-details">
+                    <div class="job-title">2 Executivos(as) de Atendimento</div>
+                    <div class="company-name">Karinga – Agência de Comunicação — Maputo</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Comunicação & Marketing</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
+                        <span><i class="fas fa-users"></i> Gestão de Contas</span>
                     </div>
-                    <div class="job-action">
-                        <span class="time-ago">Agora mesmo</span>
-                        <div class="btn-group">
-                            <button class="btn-toggle-details" onclick="toggleDetails(this)">Ver Detalhes</button>
-                            <a href="mailto:Karingana@Karingana.co.mz?subject=Candidatura%20Executivo%20de%20Atendimento" class="btn-apply">Candidatar-se</a>
-                        </div>
+                    <div class="job-snippet">
+                        <strong>Responsabilidades:</strong> Gestão diária de clientes, visão de negócio, harmonia interna e transformação de briefings em planos de ação.
                     </div>
                 </div>
-                <div class="job-extra-details">
-                    <h4>Descrição da Oportunidade:</h4>
-                    <p>Procuramos profissionais dinâmicos focados na gestão de contas e relacionamento com clientes corporativos, assegurando alta qualidade nas entregas e planeamento estratégico de comunicação.</p>
+                <div class="job-action">
+                    <span class="time-ago">Agora mesmo</span>
+                    <a href="detalhes-vaga.html?vaga=karingana-executivos" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
 
             <!-- Vaga 2 -->
             <article class="job-card">
-                <div class="job-main-content">
-                    <div class="company-badge"><i class="fas fa-wallet"></i></div>
-                    <div class="job-details">
-                        <div class="job-title">Assistente de BackOffice M-Pesa</div>
-                        <div class="company-name">Telecomunicações & Finanças Lda — Maputo</div>
-                        <div class="job-tags">
-                            <span><i class="fas fa-briefcase"></i> Tempo Inteiro</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
-                            <span><i class="fas fa-money-bill-wave"></i> Salário Compatível</span>
-                        </div>
-                        <div class="job-snippet">Profissional dinâmico para suporte operacional, gestão de bilhética USSD e relatórios diários de transações financeiras.</div>
+                <div class="company-badge"><i class="fas fa-wallet"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Assistente de BackOffice M-Pesa</div>
+                    <div class="company-name">Telecomunicações & Finanças Lda — Maputo</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Tempo Inteiro</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
+                        <span><i class="fas fa-money-bill-wave"></i> Salário Compatível</span>
                     </div>
-                    <div class="job-action">
-                        <span class="time-ago">Há 2 horas</span>
-                        <div class="btn-group">
-                            <button class="btn-toggle-details" onclick="toggleDetails(this)">Ver Detalhes</button>
-                            <a href="mailto:candidaturas@empregosmoz.com?subject=Vaga%20BackOffice" class="btn-apply">Candidatar-se</a>
-                        </div>
-                    </div>
+                    <div class="job-snippet">Profissional dinâmico para suporte operacional, gestão de bilhética USSD e relatórios diários de transações financeiras.</div>
                 </div>
-                <div class="job-extra-details">
-                    <h4>Perfil Desejado:</h4>
-                    <p>Forte capacidade analítica, facilidade com ferramentas de relatórios e suporte técnico a transações financeiras móveis.</p>
+                <div class="job-action">
+                    <span class="time-ago">Há 2 horas</span>
+                    <a href="detalhes-vaga.html?vaga=backoffice-mpesa" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
 
             <!-- Vaga 3 -->
             <article class="job-card">
-                <div class="job-main-content">
-                    <div class="company-badge" style="color: #0d6efd;"><i class="fas fa-laptop-code"></i></div>
-                    <div class="job-details">
-                        <div class="job-title">Analista de Dados & Relatórios (Excel / Power BI)</div>
-                        <div class="company-name">Grupo Empresarial Moçambicano — Beira</div>
-                        <div class="job-tags">
-                            <span><i class="fas fa-briefcase"></i> Híbrido</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Sofala (Beira)</span>
-                            <span><i class="fas fa-chart-line"></i> Analítico</span>
-                        </div>
-                        <div class="job-snippet">Automatização de dashboards de desempenho, relatórios operacionais mensais e consolidação de indicadores de suporte.</div>
+                <div class="company-badge" style="color: #0d6efd;"><i class="fas fa-laptop-code"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Analista de Dados & Relatórios (Excel / Power BI)</div>
+                    <div class="company-name">Grupo Empresarial Moçambicano — Beira</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Híbrido</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Sofala (Beira)</span>
+                        <span><i class="fas fa-chart-line"></i> Analítico</span>
                     </div>
-                    <div class="job-action">
-                        <span class="time-ago">Há 5 horas</span>
-                        <div class="btn-group">
-                            <button class="btn-toggle-details" onclick="toggleDetails(this)">Ver Detalhes</button>
-                            <a href="#" class="btn-apply">Candidatar-se</a>
-                        </div>
-                    </div>
+                    <div class="job-snippet">Automatização de dashboards de desempenho, relatórios operacionais mensais e consolidação de indicadores de suporte.</div>
                 </div>
-                <div class="job-extra-details">
-                    <h4>Requisitos Técnicos:</h4>
-                    <p>Domínio avançado de Microsoft Excel, Power Query e Power BI para construção e automação de relatórios de gestão.</p>
+                <div class="job-action">
+                    <span class="time-ago">Há 5 horas</span>
+                    <a href="detalhes-vaga.html?vaga=analista-dados" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
 
             <!-- Vaga 4 -->
             <article class="job-card">
-                <div class="job-main-content">
-                    <div class="company-badge" style="color: #198754;"><i class="fas fa-truck-loading"></i></div>
-                    <div class="job-details">
-                        <div class="job-title">Supervisor de Logística e Expedição</div>
-                        <div class="company-name">Logística & Distribuição Centro — Nampula</div>
-                        <div class="job-tags">
-                            <span><i class="fas fa-briefcase"></i> Tempo Inteiro</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Nampula</span>
-                        </div>
-                        <div class="job-snippet">Gestão de armazém, controlo rigoroso de inventário e supervisão da equipe de distribuição regional no norte do país.</div>
+                <div class="company-badge" style="color: #198754;"><i class="fas fa-truck-loading"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Supervisor de Logística e Expedição</div>
+                    <div class="company-name">Logística & Distribuição Centro — Nampula</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Tempo Inteiro</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Nampula</span>
                     </div>
-                    <div class="job-action">
-                        <span class="time-ago">Ontem</span>
-                        <div class="btn-group">
-                            <button class="btn-toggle-details" onclick="toggleDetails(this)">Ver Detalhes</button>
-                            <a href="#" class="btn-apply">Candidatar-se</a>
-                        </div>
-                    </div>
+                    <div class="job-snippet">Gestão de armazém, controlo rigoroso de inventário e supervisão da equipe de distribuição regional no norte do país.</div>
                 </div>
-                <div class="job-extra-details">
-                    <h4>Atividades Principais:</h4>
-                    <p>Coordenação de rotas de entrega, gestão de stock e inventários físicos regulares, liderança operacional de equipas de armazém.</p>
+                <div class="job-action">
+                    <span class="time-ago">Ontem</span>
+                    <a href="detalhes-vaga.html?vaga=supervisor-logistica" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
 
@@ -356,21 +295,6 @@
     </footer>
 
     <script>
-        // Função para alternar a exibição dos detalhes da vaga ao clicar no botão
-        function toggleDetails(button) {
-            const card = button.closest('.job-card');
-            const extraDetails = card.querySelector('.job-extra-details');
-            
-            if (extraDetails.style.display === 'block') {
-                extraDetails.style.display = 'none';
-                button.textContent = 'Ver Detalhes';
-            } else {
-                extraDetails.style.display = 'block';
-                button.textContent = 'Menos Detalhes';
-            }
-        }
-
-        // Script para contagem automática de vagas ativas
         document.addEventListener("DOMContentLoaded", function() {
             const jobCards = document.querySelectorAll('.job-card');
             const totalVagas = jobCards.length;
