@@ -19,7 +19,6 @@
         body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
 
-        /* Top Bar & Header */
         .top-bar { background-color: var(--dark); color: #fff; font-size: 0.85rem; padding: 6px 5%; display: flex; justify-content: space-between; }
         header { background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary); }
@@ -29,7 +28,6 @@
         nav ul li a:hover { color: var(--primary); }
         .btn-post { background-color: var(--secondary); color: #fff !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
 
-        /* Hero Search (Mix Njobs/MMO Style) */
         .hero { background: linear-gradient(135deg, var(--primary), #003d82); color: #fff; padding: 3rem 5%; text-align: center; }
         .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
         .hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
@@ -39,21 +37,17 @@
         .search-form button { background-color: var(--secondary); color: #fff; border: none; padding: 0 25px; border-radius: 6px; font-weight: bold; cursor: pointer; }
         .search-form button:hover { background-color: #218838; }
 
-        /* Quick Stats / Highlights Bar */
         .stats-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-around; text-align: center; font-size: 0.9rem; color: var(--gray); flex-wrap: wrap; gap: 10px; }
         .stats-bar strong { color: var(--primary); }
 
-        /* Layout Content */
         .container { max-width: 1200px; margin: 30px auto; padding: 0 5%; display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
 
-        /* Sidebar Filters */
         .sidebar { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid var(--border); height: fit-content; }
         .sidebar h3 { font-size: 1rem; margin-bottom: 15px; border-bottom: 2px solid var(--light); padding-bottom: 8px; color: var(--dark); }
         .filter-group { margin-bottom: 20px; }
         .filter-group label { display: block; font-size: 0.9rem; margin-bottom: 6px; color: var(--gray); cursor: pointer; }
         .filter-group input { margin-right: 8px; }
 
-        /* Job Feed */
         .feed-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .feed-header h2 { font-size: 1.3rem; }
         
@@ -76,16 +70,14 @@
         .btn-apply { background-color: var(--primary); color: #fff; padding: 6px 16px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block; }
         .btn-apply:hover { background-color: #004085; }
 
-        /* Footer */
         footer { background: var(--dark); color: #adb5bd; padding: 40px 5% 20px; margin-top: 50px; font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
         .footer-grid h4 { color: #fff; margin-bottom: 15px; }
         .footer-grid ul { list-style: none; }
         .footer-grid ul li { margin-bottom: 8px; }
         .footer-grid ul li a:hover { color: #fff; }
-        .footer-bottom { text-align: center; border-top: 1px solid #343a40; padding-top: 20px; font-size: 0.85srem; }
+        .footer-bottom { text-align: center; border-top: 1px solid #343a40; padding-top: 20px; font-size: 0.85rem; }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .search-form { grid-template-columns: 1fr; }
             .container { grid-template-columns: 1fr; }
@@ -98,7 +90,7 @@
 <body>
 
     <div class="top-bar">
-        <span><i class="fas fa-map-marker-alt"></i> Maputo, Moçambique</span>
+        <span><i class="fas fa-map-marker-alt"></i> Moçambique (Maputo, Beira, Nampula)</span>
         <span>Portal Oficial de Oportunidades</span>
     </div>
 
@@ -117,13 +109,13 @@
 
     <section class="hero">
         <h1>Encontre a Vaga Ideal em Moçambique</h1>
-        <p>Milhares de oportunidades atualizadas diariamente em Maputo, Beira, Nampula e todo o país.</p>
+        <p>Oportunidades atualizadas diariamente nas principais províncias e sectores do país.</p>
         
         <form class="search-form" onsubmit="event.preventDefault();">
             <input type="text" placeholder="Cargo, palavra-chave ou competência...">
             <select>
                 <option value="">Todas as Localizações</option>
-                <option>Maputo (Cidade/Província)</option>
+                <option>Maputo</option>
                 <option>Sofala (Beira)</option>
                 <option>Nampula</option>
                 <option>Inhambane / Gaza</option>
@@ -133,7 +125,7 @@
                 <option value="">Qualquer Setor</option>
                 <option>Administração & RH</option>
                 <option>Tecnologia / TI</option>
-                <option>Contabilidade & Finanças</option>
+                <option>Sector Automóvel & Industrial</option>
                 <option>Logística & Vendas</option>
             </select>
             <button type="submit"><i class="fas fa-search"></i> Pesquisar</button>
@@ -149,7 +141,6 @@
 
     <div class="container">
         
-        <!-- Sidebar de Filtros Rápidos (Estilo Njobs / Sovagas) -->
         <aside class="sidebar">
             <div class="filter-group">
                 <h3>Tipo de Contrato</h3>
@@ -168,25 +159,46 @@
             </div>
         </aside>
 
-        <!-- Feed Principal de Vagas -->
         <main>
             <div class="feed-header">
                 <h2>Últimas Oportunidades Publicadas</h2>
                 <span style="font-size: 0.9rem; color: var(--gray);">Ordenar por: <strong>Mais Recentes</strong></span>
             </div>
 
-            <!-- Vaga 1 -->
+            <!-- Vaga 1: Director de Recursos Humanos (Sector Automóvel) -->
             <article class="job-card">
-                <div class="company-badge"><i class="fas fa-building"></i></div>
+                <div class="company-badge" style="color: #dc3545;"><i class="fas fa-car"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Director de Recursos Humanos</div>
+                    <div class="company-name">Sector Automóvel / Industrial — Moçambique</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Sénior / Liderança</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Moçambique</span>
+                        <span><i class="fas fa-graduation-cap"></i> Licenciatura</span>
+                    </div>
+                    <div class="job-snippet">
+                        <strong>Responsabilidades:</strong> Desenvolver estratégia de RH, liderar relações laborais, gestão de desempenho (KPIs/KRAs), payroll e dashboards executivos. 
+                        <br><strong>Requisitos:</strong> 10 anos de experiência na área (5 em liderança sénior), vivência em ambientes operacionais e domínio da Lei do Trabalho.
+                    </div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Destaque</span>
+                    <a href="https://kukwira.co.mz/#/candidatura#487" class="btn-apply" target="_blank">Candidatar-se</a>
+                </div>
+            </article>
+
+            <!-- Vaga 2 -->
+            <article class="job-card">
+                <div class="company-badge"><i class="fas fa-wallet"></i></div>
                 <div class="job-details">
                     <div class="job-title">Assistente de BackOffice M-Pesa</div>
                     <div class="company-name">Telecomunicações & Finanças Lda — Maputo</div>
                     <div class="job-tags">
                         <span><i class="fas fa-briefcase"></i> Tempo Inteiro</span>
                         <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
-                        <span><i class="fas fa-wallet"></i> Salário Compatível</span>
+                        <span><i class="fas fa-money-bill-wave"></i> Salário Compatível</span>
                     </div>
-                    <div class="job-snippet">Procuramos profissionais dinâmicos para atendimento de suporte operacional, gestão de bilhética USSD e relatórios diários de transações.</div>
+                    <div class="job-snippet">Profissional dinâmico para suporte operacional, gestão de bilhética USSD e relatórios diários de transações financeiras.</div>
                 </div>
                 <div class="job-action">
                     <span class="time-ago">Há 2 horas</span>
@@ -194,9 +206,9 @@
                 </div>
             </article>
 
-            <!-- Vaga 2 -->
+            <!-- Vaga 3 -->
             <article class="job-card">
-                <div class="company-badge"><i class="fas fa-laptop-code"></i></div>
+                <div class="company-badge" style="color: #0d6efd;"><i class="fas fa-laptop-code"></i></div>
                 <div class="job-details">
                     <div class="job-title">Analista de Dados & Relatórios (Excel / Power BI)</div>
                     <div class="company-name">Grupo Empresarial Moçambicano — Beira</div>
@@ -205,7 +217,7 @@
                         <span><i class="fas fa-map-marker-alt"></i> Sofala (Beira)</span>
                         <span><i class="fas fa-chart-line"></i> Analítico</span>
                     </div>
-                    <div class="job-snippet">Responsável por automatizar dashboards de desempenho, relatórios operacionais mensais e consolidação de indicadores de suporte ao cliente.</div>
+                    <div class="job-snippet">Automatização de dashboards de desempenho, relatórios operacionais mensais e consolidação de indicadores de suporte.</div>
                 </div>
                 <div class="job-action">
                     <span class="time-ago">Há 5 horas</span>
@@ -213,9 +225,9 @@
                 </div>
             </article>
 
-            <!-- Vaga 3 -->
+            <!-- Vaga 4 -->
             <article class="job-card">
-                <div class="company-badge"><i class="fas fa-truck-loading"></i></div>
+                <div class="company-badge" style="color: #198754;"><i class="fas fa-truck-loading"></i></div>
                 <div class="job-details">
                     <div class="job-title">Supervisor de Logística e Expedição</div>
                     <div class="company-name">Logística & Distribuição Centro — Nampula</div>
@@ -249,7 +261,7 @@
                 </ul>
             </div>
             <div>
-                <h4>Provincias</h4>
+                <h4>Províncias</h4>
                 <ul>
                     <li><a href="#">Vagas em Maputo</a></li>
                     <li><a href="#">Vagas em Sofala (Beira)</a></li>
