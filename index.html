@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dicas de CV e Cartas de Apresentação - EmpregosMoz</title>
+    <title>EmpregosMoz - Vagas de Emprego e Oportunidades em Moçambique</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -14,116 +14,218 @@
             --gray: #6c757d;
             --border: #dee2e6;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
         body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        .top-bar { background-color: var(--dark); color: #fff; font-size: 0.85rem; padding: 6px 5%; display: flex; justify-content: space-between; }
         header { background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary); }
         .logo span { color: var(--secondary); }
         nav ul { display: flex; gap: 20px; list-style: none; align-items: center; }
         nav ul li a { font-weight: 500; font-size: 0.95rem; color: #495057; }
         nav ul li a:hover { color: var(--primary); }
+        .btn-post { background-color: var(--secondary); color: #fff !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
 
-        .hero-dicas { background: linear-gradient(135deg, var(--primary), #003d82); color: #fff; padding: 2.5rem 5%; text-align: center; }
-        .hero-dicas h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .hero-dicas p { font-size: 1rem; opacity: 0.9; }
-
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 5%; }
+        .hero { background: linear-gradient(135deg, var(--primary), #003d82); color: #fff; padding: 3rem 5%; text-align: center; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
         
-        .card-dica { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-        .card-dica h2 { color: var(--primary); font-size: 1.4rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .card-dica p { margin-bottom: 15px; color: #444; }
+        .search-form { background: #fff; padding: 12px; border-radius: 8px; display: grid; grid-template-columns: 2fr 2fr 1fr auto; gap: 10px; max-width: 900px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .search-form input, .search-form select { padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; outline: none; }
+        .search-form button { background-color: var(--secondary); color: #fff; border: none; padding: 0 25px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .search-form button:hover { background-color: #218838; }
+
+        .stats-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-around; text-align: center; font-size: 0.9rem; color: var(--gray); flex-wrap: wrap; gap: 10px; }
+        .stats-bar strong { color: var(--primary); }
+
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 5%; display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+
+        .sidebar { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid var(--border); height: fit-content; }
+        .sidebar h3 { font-size: 1rem; margin-bottom: 15px; border-bottom: 2px solid var(--light); padding-bottom: 8px; color: var(--dark); }
+        .filter-group { margin-bottom: 20px; }
+        .filter-group label { display: block; font-size: 0.9rem; margin-bottom: 6px; color: var(--gray); cursor: pointer; }
+        .filter-group input { margin-right: 8px; }
+
+        .feed-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .feed-header h2 { font-size: 1.3rem; }
         
-        .checklist { list-style: none; margin-bottom: 20px; }
-        .checklist li { margin-bottom: 8px; position: relative; padding-left: 25px; }
-        .checklist li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; color: var(--secondary); }
+        .job-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start; transition: all 0.2s; }
+        .job-card:hover { border-color: var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        
+        .company-badge { width: 55px; height: 55px; background: var(--light); border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--primary); flex-shrink: 0; }
+        
+        .job-details { flex: 1; }
+        .job-title { font-size: 1.15rem; color: var(--primary); font-weight: bold; margin-bottom: 4px; }
+        .company-name { font-weight: 600; font-size: 0.95rem; color: var(--dark); margin-bottom: 8px; }
+        
+        .job-tags { display: flex; gap: 10px; flex-wrap: wrap; font-size: 0.85rem; color: var(--gray); margin-bottom: 5px; }
+        .job-tags span { background: var(--light); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border); }
 
-        .template-box { background: #f8f9fa; border-left: 4px solid var(--secondary); padding: 20px; font-family: monospace; font-size: 0.9rem; white-space: pre-wrap; margin-top: 15px; border-radius: 0 6px 6px 0; color: #333; }
+        .job-action { text-align: right; display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 80px; }
+        .time-ago { font-size: 0.8rem; color: var(--gray); }
+        .btn-apply { background-color: var(--primary); color: #fff; padding: 6px 16px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block; }
+        .btn-apply:hover { background-color: #004085; }
 
-        footer { text-align: center; padding: 30px; color: var(--gray); font-size: 0.85rem; margin-top: 40px; background: #fff; border-top: 1px solid var(--border); }
+        footer { background: var(--dark); color: #adb5bd; padding: 40px 5% 20px; margin-top: 50px; font-size: 0.9rem; }
+        .footer-bottom { text-align: center; border-top: 1px solid #343a40; padding-top: 20px; font-size: 0.85rem; }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .search-form { grid-template-columns: 1fr; }
+            .container { grid-template-columns: 1fr; }
             nav ul { display: none; }
+            .job-card { flex-direction: column; }
+            .job-action { text-align: left; flex-direction: row; align-items: center; margin-top: 10px; width: 100%; }
         }
     </style>
 </head>
 <body>
+
+    <div class="top-bar">
+        <span><i class="fas fa-map-marker-alt"></i> Moçambique (Maputo, Beira, Nampula)</span>
+        <span>Portal Oficial de Oportunidades</span>
+    </div>
 
     <header>
         <div class="logo">Empregos<span>Moz</span></div>
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li><a href="index.html">Todas as Vagas</a></li>
-                <li><a href="dicas-cv.html" style="color: var(--primary); font-weight: bold;">Dicas CV</a></li>
+                <li><a href="#">Todas as Vagas</a></li>
+                <li><a href="#">Por Província</a></li>
+                <li><a href="dicas-cv.html">Dicas CV</a></li>
+                <li><a href="#" class="btn-post"><i class="fas fa-plus-circle"></i> Publicar Vaga</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero-dicas">
-        <h1>Centro de Recursos e Carreiras</h1>
-        <p>Aprenda a destacar o seu currículo e a redigir cartas de manifestação de interesse vencedoras.</p>
+    <section class="hero">
+        <h1>Encontre a Vaga Ideal em Moçambique</h1>
+        <p>Oportunidades atualizadas diariamente nas principais províncias e sectores do país.</p>
+        
+        <form class="search-form" onsubmit="event.preventDefault();">
+            <input type="text" placeholder="Cargo, palavra-chave ou competência...">
+            <select>
+                <option value="">Todas as Localizações</option>
+                <option>Maputo</option>
+                <option>Sofala (Beira)</option>
+                <option>Nampula</option>
+            </select>
+            <select>
+                <option value="">Qualquer Setor</option>
+                <option>Tecnologia e Privacidade</option>
+                <option>Contabilidade e Finanças</option>
+            </select>
+            <button type="submit"><i class="fas fa-search"></i> Pesquisar</button>
+        </form>
     </section>
 
+    <div class="stats-bar">
+        <div>Vagas Ativas: <strong id="total-vagas">0</strong></div>
+        <div>Novas Hoje: <strong id="novas-hoje">0</strong></div>
+        <div>Empresas Parceiras: <strong>750+</strong></div>
+        <div>Candidatos Registados: <strong>1.8k+</strong></div>
+    </div>
+
     <div class="container">
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3>Tipo de Contrato</h3>
+                <label><input type="checkbox" checked> Tempo Inteiro (Full-time)</label>
+                <label><input type="checkbox"> Contrato a Prazo Certo</label>
+                <label><input type="checkbox"> Prestação de Serviços</label>
+            </div>
+        </aside>
 
-        <!-- Bloco 1: Estrutura do CV -->
-        <div class="card-dica">
-            <h2><i class="fas fa-file-alt"></i> 1. Como Estruturar um CV Perfeito para o Mercado Moçambicano</h2>
-            <p>Os recrutadores em Maputo, Beira e restantes províncias leem dezenas de CVs por vaga em poucos segundos. O seu documento deve ser limpo, direto e focado em resultados.</p>
-            <ul class="checklist">
-                <li><strong>Dados de Contacto Atualizados:</strong> Inclua nome completo, e-mail profissional, telemóvel ativo em Moçambique e link do LinkedIn. Evite moradas excessivamente longas.</li>
-                <li><strong>Resumo Profissional Forte:</strong> 3 a 4 linhas no topo a resumir os seus anos de experiência, principais competências (ex: Excel avançado, Power BI, Gestão de Projetos) e o valor que traz.</li>
-                <li><strong>Experiência em Ordem Cronológica Inversa:</strong> Comece pelo emprego atual ou mais recente. Destaque conquistas quantificáveis em vez de apenas listar tarefas.</li>
-                <li><strong>Formação Académica e Certificações:</strong> Indique o grau, a instituição de ensino e o ano de conclusão. Inclua formações técnicas relevantes (ex: contabilidade, auditoria ou segurança de dados).</li>
-            </ul>
-        </div>
+        <main>
+            <div class="feed-header">
+                <h2>Últimas Oportunidades Publicadas</h2>
+                <span style="font-size: 0.9rem; color: var(--gray);">Ordenar por: <strong>Mais Recentes</strong></span>
+            </div>
 
-        <!-- Bloco 2: Carta de Manifestação / Apresentação -->
-        <div class="card-dica">
-            <h2><i class="fas fa-envelope-open-text"></i> 2. Guia e Modelo de Carta de Manifestação de Interesse</h2>
-            <p>A carta de apresentação (ou manifestação de interesse) é a sua primeira oportunidade de demonstrar comunicação clara e alinhamento com a cultura da empresa contratante.</p>
-            <p><strong>Exemplo de Estrutura Pronta a Utilizar:</strong></p>
-            
-            <div class="template-box">[Seu Nome Completo]
-[Seu Bairro / Cidade, Maputo] | [Seu Telemóvel] | [Seu E-mail]
+            <!-- VAGA 1 -->
+            <article class="job-card">
+                <div class="company-badge" style="color: #0056b3;"><i class="fas fa-user-shield"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Assistente de Privacidade de Dados (m/f) - 1 Vaga</div>
+                    <div class="company-name">CONTACT (Cliente Confidencial) — Maputo</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Prazo Certo</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
+                        <span><i class="fas fa-calendar-alt"></i> Expira: 03/09/2026</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Recente</span>
+                    <a href="detalhes-vaga.html?vaga=privacidade-dados" class="btn-apply">Candidatar-se</a>
+                </div>
+            </article>
 
-À Atenção do Departamento de Recursos Humanos / Seleção
-[Nome da Empresa ou Agência de Recrutamento, ex: CONTACT]
-[Cidade, Moçambique]
+            <!-- VAGA 2 -->
+            <article class="job-card">
+                <div class="company-badge" style="color: #fd7e14;"><i class="fas fa-credit-card"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Assistente Admin. para Suporte à Monitoria de Fraudes com Cartões e POS (m/f)</div>
+                    <div class="company-name">CONTACT / Instituição Financeira — Maputo</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Licenciatura</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
+                        <span><i class="fas fa-calendar-alt"></i> Expira: 03/09/2026</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Recente</span>
+                    <a href="detalhes-vaga.html?vaga=monitoria-fraudes" class="btn-apply">Candidatar-se</a>
+                </div>
+            </article>
 
-Assunto: Manifestação de Interesse – Vaga de [Nome Exato da Vaga]
+            <!-- VAGA 3 -->
+            <article class="job-card">
+                <div class="company-badge" style="color: #198754;"><i class="fas fa-file-alt"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Oportunidade Profissional (Recrutamento Digital - Beehire 1)</div>
+                    <div class="company-name">Parceiro Corporativo — Moçambique</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Online</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Nacional</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Recente</span>
+                    <a href="detalhes-vaga.html?vaga=beehire-1" class="btn-apply">Candidatar-se</a>
+                </div>
+            </article>
 
-Prezados Senhores,
-
-Venho por meio desta manifestar o meu forte interesse na oportunidade de [Nome da Vaga], conforme anúncio consultado no portal EmpregosMoz.
-
-Com uma sólida trajetória profissional em [sua área principal, ex: suporte administrativo, análise de dados ou atendimento ao cliente], desenvolvi competências avançadas em [citar 2 ferramentas ou competências-chave, ex: gestão de bases de dados e resolução de conflitos], tendo consistentemente focado na otimização de processos e eficiência operacional.
-
-Acredito que a minha experiência prévia alinhada à minha capacidade de adaptação rápida e foco em resultados tornam o meu perfil adequado para integrar a vossa equipa e contribuir para os objetivos estratégicos da organização.
-
-Em anexo, submeto o meu Curriculum Vitae detalhado para análise. Fico inteiramente à disposição para uma entrevista presencial ou online, agradecendo desde já a atenção dispensada.
-
-Com os melhores cumprimentos,
-
-[Seu Nome Completo]</div>
-        </div>
-
-        <!-- Bloco 3: Erros a Evitar -->
-        <div class="card-dica">
-            <h2><i class="fas fa-exclamation-triangle"></i> 3. Erros Críticos que Eliminam Candidatos Imediatamente</h2>
-            <p>Evite estas falhas comuns para garantir que o seu perfil passa na triagem inicial dos recrutadores:</p>
-            <ul class="checklist">
-                <li><strong>Erros Ortográficos e Gramaticais:</strong> Revise o documento várias vezes. Um erro no nome da empresa ou no título da vaga demonstra falta de atenção.</li>
-                <li><strong>Envio de Formato Incorreto:</strong> Guarde e envie o CV sempre em formato **PDF** (a menos que o anúncio exija Word), garantindo que a formatação não se desalinha ao abrir.</li>
-                <li><strong>Falta de Personalização:</strong> Enviar a mesma carta genérica sem adaptar o nome da vaga ou da empresa reduz drasticamente as suas chances de sucesso.</li>
-            </ul>
-        </div>
-
+            <!-- VAGA 4 -->
+            <article class="job-card">
+                <div class="company-badge" style="color: #0dcaf0;"><i class="fas fa-briefcase"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Processo de Recrutamento e Seleção (Beehire 2)</div>
+                    <div class="company-name">Parceiro Corporativo — Moçambique</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Inscrição Aberta</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Recente</span>
+                    <a href="detalhes-vaga.html?vaga=beehire-2" class="btn-apply">Candidatar-se</a>
+                </div>
+            </article>
+        </main>
     </div>
 
     <footer>
-        &copy; 2026 EmpregosMoz.com. Dores e oportunidades para o desenvolvimento profissional em Moçambique.
+        <div class="footer-bottom">&copy; 2026 EmpregosMoz.com. Todos os direitos reservados.</div>
     </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const total = document.querySelectorAll('.job-card').length;
+            document.getElementById('total-vagas').textContent = total;
+            document.getElementById('novas-hoje').textContent = total;
+        });
+    </script>
 </body>
 </html>
