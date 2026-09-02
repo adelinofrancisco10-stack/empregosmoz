@@ -60,10 +60,8 @@
         .job-title { font-size: 1.15rem; color: var(--primary); font-weight: bold; margin-bottom: 4px; }
         .company-name { font-weight: 600; font-size: 0.95rem; color: var(--dark); margin-bottom: 8px; }
         
-        .job-tags { display: flex; gap: 10px; flex-wrap: wrap; font-size: 0.85rem; color: var(--gray); margin-bottom: 10px; }
+        .job-tags { display: flex; gap: 10px; flex-wrap: wrap; font-size: 0.85rem; color: var(--gray); margin-bottom: 5px; }
         .job-tags span { background: var(--light); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border); }
-        
-        .job-snippet { font-size: 0.9rem; color: #555; }
 
         .job-action { text-align: right; display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 80px; }
         .time-ago { font-size: 0.8rem; color: var(--gray); }
@@ -98,7 +96,7 @@
         <div class="logo">Empregos<span>Moz</span></div>
         <nav>
             <ul>
-                <li><a href="#">Início</a></li>
+                <li><a href="index.html">Início</a></li>
                 <li><a href="#">Todas as Vagas</a></li>
                 <li><a href="#">Por Província</a></li>
                 <li><a href="#">Dicas CV</a></li>
@@ -123,7 +121,6 @@
                 <option value="">Qualquer Setor</option>
                 <option>Tecnologia e Privacidade</option>
                 <option>Contabilidade e Finanças</option>
-                <option>Administração e Apoio</option>
             </select>
             <button type="submit"><i class="fas fa-search"></i> Pesquisar</button>
         </form>
@@ -137,7 +134,6 @@
     </div>
 
     <div class="container">
-        
         <aside class="sidebar">
             <div class="filter-group">
                 <h3>Tipo de Contrato</h3>
@@ -145,150 +141,96 @@
                 <label><input type="checkbox"> Contrato a Prazo Certo</label>
                 <label><input type="checkbox"> Prestação de Serviços</label>
             </div>
-
-            <div class="filter-group">
-                <h3>Publicado em</h3>
-                <label><input type="radio" name="date" checked> Todas</label>
-                <label><input type="radio" name="date"> Últimas 24 horas</label>
-                <label><input type="radio" name="date"> Últimos 3 dias</label>
-            </div>
         </aside>
 
         <main>
             <div class="feed-header">
-                <h2>Últimas Oportunidades Publicadas (CONTACT)</h2>
+                <h2>Últimas Oportunidades Publicadas</h2>
                 <span style="font-size: 0.9rem; color: var(--gray);">Ordenar por: <strong>Mais Recentes</strong></span>
             </div>
 
-            <!-- VAGA 1: Assistente de Privacidade de Dados -->
+            <!-- VAGA 1 -->
             <article class="job-card">
                 <div class="company-badge" style="color: #0056b3;"><i class="fas fa-user-shield"></i></div>
                 <div class="job-details">
                     <div class="job-title">Assistente de Privacidade de Dados (m/f) - 1 Vaga</div>
                     <div class="company-name">CONTACT (Cliente Confidencial) — Maputo</div>
                     <div class="job-tags">
-                        <span><i class="fas fa-briefcase"></i> Contrato a Prazo Certo (1 Ano)</span>
+                        <span><i class="fas fa-briefcase"></i> Prazo Certo</span>
                         <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
                         <span><i class="fas fa-calendar-alt"></i> Expira: 03/09/2026</span>
                     </div>
-                    <div class="job-snippet">
-                        <strong>Resumo:</strong> Apoiar o DPO em avaliações de impacto sobre privacidade (DPIA), gestão de risco operacional (PRCIA), e controlo de dados sensíveis.
-                    </div>
                 </div>
                 <div class="job-action">
-                    <span class="time-ago">01 Set 2026</span>
-                    <a href="detalhes-vaga.html?vaga=assistente-privacidade-dados-contact" class="btn-apply">Candidatar-se</a>
+                    <span class="time-ago">Recente</span>
+                    <a href="detalhes-vaga.html?vaga=privacidade-dados" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
 
-            <!-- VAGA 2: Assistente admin. para suporte à monitoria de fraudes com cartões e POS -->
+            <!-- VAGA 2 -->
             <article class="job-card">
                 <div class="company-badge" style="color: #fd7e14;"><i class="fas fa-credit-card"></i></div>
                 <div class="job-details">
                     <div class="job-title">Assistente Admin. para Suporte à Monitoria de Fraudes com Cartões e POS (m/f)</div>
                     <div class="company-name">CONTACT / Instituição Financeira — Maputo</div>
                     <div class="job-tags">
-                        <span><i class="fas fa-briefcase"></i> Licenciatura (Gestão/Economia/Contabilidade)</span>
+                        <span><i class="fas fa-briefcase"></i> Licenciatura</span>
                         <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
                         <span><i class="fas fa-calendar-alt"></i> Expira: 03/09/2026</span>
                     </div>
-                    <div class="job-snippet">
-                        <strong>Resumo:</strong> Tratamento de reclamações de clientes sobre transações não reconhecidas, monitorização de transações suspeitas e bloqueio de cartões em ATM, POS e Internet.
-                    </div>
                 </div>
                 <div class="job-action">
-                    <span class="time-ago">01 Set 2026</span>
-                    <a href="detalhes-vaga.html?vaga=assistente-monitoria-fraudes-contact" class="btn-apply">Candidatar-se</a>
+                    <span class="time-ago">Recente</span>
+                    <a href="detalhes-vaga.html?vaga=monitoria-fraudes" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
 
-            <!-- VAGA 3: Beehire Link 1 -->
+            <!-- VAGA 3 -->
             <article class="job-card">
                 <div class="company-badge" style="color: #198754;"><i class="fas fa-file-alt"></i></div>
                 <div class="job-details">
-                    <div class="job-title">Oportunidade Profissional (Recrutamento Digital)</div>
+                    <div class="job-title">Oportunidade Profissional (Recrutamento Digital - Beehire 1)</div>
                     <div class="company-name">Parceiro Corporativo — Moçambique</div>
                     <div class="job-tags">
-                        <span><i class="fas fa-briefcase"></i> Processo Seletivo Online</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Nacional / Remoto</span>
-                    </div>
-                    <div class="job-snippet">
-                        <strong>Resumo:</strong> Submissão direta de candidatura integrada via plataforma de triagem digital e avaliação de competências.
+                        <span><i class="fas fa-briefcase"></i> Online</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Nacional</span>
                     </div>
                 </div>
                 <div class="job-action">
                     <span class="time-ago">Recente</span>
-                    <a href="https://app.beehire.com/invite/AXxAldYxf?form=false" target="_blank" class="btn-apply">Candidatar-se</a>
+                    <a href="detalhes-vaga.html?vaga=beehire-1" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
 
-            <!-- VAGA 4: Beehire Link 2 -->
+            <!-- VAGA 4 -->
             <article class="job-card">
                 <div class="company-badge" style="color: #0dcaf0;"><i class="fas fa-briefcase"></i></div>
                 <div class="job-details">
-                    <div class="job-title">Processo de Recrutamento e Seleção</div>
+                    <div class="job-title">Processo de Recrutamento e Seleção (Beehire 2)</div>
                     <div class="company-name">Parceiro Corporativo — Moçambique</div>
                     <div class="job-tags">
                         <span><i class="fas fa-briefcase"></i> Inscrição Aberta</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Maputo e Províncias</span>
-                    </div>
-                    <div class="job-snippet">
-                        <strong>Resumo:</strong> Envio de currículo e preenchimento de formulário unificado para oportunidades em aberto.
+                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
                     </div>
                 </div>
                 <div class="job-action">
                     <span class="time-ago">Recente</span>
-                    <a href="https://app.beehire.com/invite/c9Y7yXosf?form=false" target="_blank" class="btn-apply">Candidatar-se</a>
+                    <a href="detalhes-vaga.html?vaga=beehire-2" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
-
         </main>
     </div>
 
     <footer>
-        <div class="footer-grid">
-            <div>
-                <h4>EmpregosMoz</h4>
-                <p>O portal de referência para encontrar trabalho e impulsionar carreiras profissionais em todo o território moçambicano.</p>
-            </div>
-            <div>
-                <h4>Links Úteis</h4>
-                <ul>
-                    <li><a href="#">Termos e Condições</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Perguntas Frequentes</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Províncias</h4>
-                <ul>
-                    <li><a href="#">Vagas em Maputo</a></li>
-                    <li><a href="#">Vagas em Sofala (Beira)</a></li>
-                    <li><a href="#">Vagas em Nampula</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 EmpregosMoz.com. Todos os direitos reservados.
-        </div>
+        <div class="footer-bottom">&copy; 2026 EmpregosMoz.com. Todos os direitos reservados.</div>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const jobCards = document.querySelectorAll('.job-card');
-            const totalVagas = jobCards.length;
-
-            const elementoTotal = document.getElementById('total-vagas');
-            if (elementoTotal) {
-                elementoTotal.textContent = totalVagas;
-            }
-
-            const elementoNovas = document.getElementById('novas-hoje');
-            if (elementoNovas) {
-                elementoNovas.textContent = totalVagas;
-            }
+            const total = document.querySelectorAll('.job-card').length;
+            document.getElementById('total-vagas').textContent = total;
+            document.getElementById('novas-hoje').textContent = total;
         });
     </script>
-
 </body>
 </html>
