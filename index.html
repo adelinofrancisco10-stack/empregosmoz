@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpregosMoz - Vagas de Emprego e Oportunidades em Moçambique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #28a745;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --border: #dee2e6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Top Bar & Header */
+        .top-bar { background-color: var(--dark); color: #fff; font-size: 0.85rem; padding: 6px 5%; display: flex; justify-content: space-between; }
+        header { background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        nav ul { display: flex; gap: 20px; list-style: none; align-items: center; }
+        nav ul li a { font-weight: 500; font-size: 0.95rem; color: #495057; }
+        nav ul li a:hover { color: var(--primary); }
+        .btn-post { background-color: var(--secondary); color: #fff !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
+
+        /* Hero Search (Mix Njobs/MMO Style) */
+        .hero { background: linear-gradient(135deg, var(--primary), #003d82); color: #fff; padding: 3rem 5%; text-align: center; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
+        
+        .search-form { background: #fff; padding: 12px; border-radius: 8px; display: grid; grid-template-columns: 2fr 2fr 1fr auto; gap: 10px; max-width: 900px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .search-form input, .search-form select { padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; outline: none; }
+        .search-form button { background-color: var(--secondary); color: #fff; border: none; padding: 0 25px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .search-form button:hover { background-color: #218838; }
+
+        /* Quick Stats / Highlights Bar */
+        .stats-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-around; text-align: center; font-size: 0.9rem; color: var(--gray); flex-wrap: wrap; gap: 10px; }
+        .stats-bar strong { color: var(--primary); }
+
+        /* Layout Content */
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 5%; display: grid; grid-template-columns: 280px 1fr; gap: 30px; }
+
+        /* Sidebar Filters */
+        .sidebar { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid var(--border); height: fit-content; }
+        .sidebar h3 { font-size: 1rem; margin-bottom: 15px; border-bottom: 2px solid var(--light); padding-bottom: 8px; color: var(--dark); }
+        .filter-group { margin-bottom: 20px; }
+        .filter-group label { display: block; font-size: 0.9rem; margin-bottom: 6px; color: var(--gray); cursor: pointer; }
+        .filter-group input { margin-right: 8px; }
+
+        /* Job Feed */
+        .feed-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .feed-header h2 { font-size: 1.3rem; }
+        
+        .job-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start; transition: all 0.2s; }
+        .job-card:hover { border-color: var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        
+        .company-badge { width: 55px; height: 55px; background: var(--light); border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--primary); flex-shrink: 0; }
+        
+        .job-details { flex: 1; }
+        .job-title { font-size: 1.15rem; color: var(--primary); font-weight: bold; margin-bottom: 4px; }
+        .company-name { font-weight: 600; font-size: 0.95rem; color: var(--dark); margin-bottom: 8px; }
+        
+        .job-tags { display: flex; gap: 10px; flex-wrap: wrap; font-size: 0.85rem; color: var(--gray); margin-bottom: 10px; }
+        .job-tags span { background: var(--light); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border); }
+        
+        .job-snippet { font-size: 0.9rem; color: #555; }
+
+        .job-action { text-align: right; display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 80px; }
+        .time-ago { font-size: 0.8rem; color: var(--gray); }
+        .btn-apply { background-color: var(--primary); color: #fff; padding: 6px 16px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block; }
+        .btn-apply:hover { background-color: #004085; }
+
+        /* Footer */
+        footer { background: var(--dark); color: #adb5bd; padding: 40px 5% 20px; margin-top: 50px; font-size: 0.9rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer-grid h4 { color: #fff; margin-bottom: 15px; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid ul li { margin-bottom: 8px; }
+        .footer-grid ul li a:hover { color: #fff; }
+        .footer-bottom { text-align: center; border-top: 1px solid #343a40; padding-top: 20px; font-size: 0.85srem; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .search-form { grid-template-columns: 1fr; }
+            .container { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+            .job-card { flex-direction: column; }
+            .job-action { text-align: left; flex-direction: row; align-items: center; margin-top: 10px; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <span><i class="fas fa-map-marker-alt"></i> Maputo, Moçambique</span>
+        <span>Portal Oficial de Oportunidades</span>
+    </div>
+
+    <header>
+        <div class="logo">Empregos<span>Moz</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Todas as Vagas</a></li>
+                <li><a href="#">Por Província</a></li>
+                <li><a href="#">Dicas CV</a></li>
+                <li><a href="#" class="btn-post"><i class="fas fa-plus-circle"></i> Publicar Vaga</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Encontre a Vaga Ideal em Moçambique</h1>
+        <p>Milhares de oportunidades atualizadas diariamente em Maputo, Beira, Nampula e todo o país.</p>
+        
+        <form class="search-form" onsubmit="event.preventDefault();">
+            <input type="text" placeholder="Cargo, palavra-chave ou competência...">
+            <select>
+                <option value="">Todas as Localizações</option>
+                <option>Maputo (Cidade/Província)</option>
+                <option>Sofala (Beira)</option>
+                <option>Nampula</option>
+                <option>Inhambane / Gaza</option>
+                <option>Remoto / Nacional</option>
+            </select>
+            <select>
+                <option value="">Qualquer Setor</option>
+                <option>Administração & RH</option>
+                <option>Tecnologia / TI</option>
+                <option>Contabilidade & Finanças</option>
+                <option>Logística & Vendas</option>
+            </select>
+            <button type="submit"><i class="fas fa-search"></i> Pesquisar</button>
+        </form>
+    </section>
+
+    <div class="stats-bar">
+        <div>Vagas Ativas: <strong>142</strong></div>
+        <div>Novas Hoje: <strong>18</strong></div>
+        <div>Empresas Parceiras: <strong>65</strong></div>
+        <div>Candidatos Registados: <strong>1.2k+</strong></div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Sidebar de Filtros Rápidos (Estilo Njobs / Sovagas) -->
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3>Tipo de Contrato</h3>
+                <label><input type="checkbox" checked> Tempo Inteiro (Full-time)</label>
+                <label><input type="checkbox"> Meio Período (Part-time)</label>
+                <label><input type="checkbox"> Estágio Profissional</label>
+                <label><input type="checkbox"> Prestação de Serviços</label>
+            </div>
+
+            <div class="filter-group">
+                <h3>Publicado em</h3>
+                <label><input type="radio" name="date" checked> Todas</label>
+                <label><input type="radio" name="date"> Últimas 24 horas</label>
+                <label><input type="radio" name="date"> Últimos 3 dias</label>
+                <label><input type="radio" name="date"> Última semana</label>
+            </div>
+        </aside>
+
+        <!-- Feed Principal de Vagas -->
+        <main>
+            <div class="feed-header">
+                <h2>Últimas Oportunidades Publicadas</h2>
+                <span style="font-size: 0.9rem; color: var(--gray);">Ordenar por: <strong>Mais Recentes</strong></span>
+            </div>
+
+            <!-- Vaga 1 -->
+            <article class="job-card">
+                <div class="company-badge"><i class="fas fa-building"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Assistente de BackOffice M-Pesa</div>
+                    <div class="company-name">Telecomunicações & Finanças Lda — Maputo</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Tempo Inteiro</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
+                        <span><i class="fas fa-wallet"></i> Salário Compatível</span>
+                    </div>
+                    <div class="job-snippet">Procuramos profissionais dinâmicos para atendimento de suporte operacional, gestão de bilhética USSD e relatórios diários de transações.</div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Há 2 horas</span>
+                    <a href="mailto:candidaturas@empregosmoz.com?subject=Vaga%20BackOffice" class="btn-apply">Candidatar-se</a>
+                </div>
+            </article>
+
+            <!-- Vaga 2 -->
+            <article class="job-card">
+                <div class="company-badge"><i class="fas fa-laptop-code"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Analista de Dados & Relatórios (Excel / Power BI)</div>
+                    <div class="company-name">Grupo Empresarial Moçambicano — Beira</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Híbrido</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Sofala (Beira)</span>
+                        <span><i class="fas fa-chart-line"></i> Analítico</span>
+                    </div>
+                    <div class="job-snippet">Responsável por automatizar dashboards de desempenho, relatórios operacionais mensais e consolidação de indicadores de suporte ao cliente.</div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Há 5 horas</span>
+                    <a href="#" class="btn-apply">Candidatar-se</a>
+                </div>
+            </article>
+
+            <!-- Vaga 3 -->
+            <article class="job-card">
+                <div class="company-badge"><i class="fas fa-truck-loading"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Supervisor de Logística e Expedição</div>
+                    <div class="company-name">Logística & Distribuição Centro — Nampula</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Tempo Inteiro</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Nampula</span>
+                    </div>
+                    <div class="job-snippet">Gestão de armazém, controlo rigoroso de inventário e supervisão da equipe de distribuição regional no norte do país.</div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Ontem</span>
+                    <a href="#" class="btn-apply">Candidatar-se</a>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>EmpregosMoz</h4>
+                <p>O portal de referência para encontrar trabalho e impulsionar carreiras profissionais em todo o território moçambicano.</p>
+            </div>
+            <div>
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="#">Termos e Condições</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Perguntas Frequentes</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Provincias</h4>
+                <ul>
+                    <li><a href="#">Vagas em Maputo</a></li>
+                    <li><a href="#">Vagas em Sofala (Beira)</a></li>
+                    <li><a href="#">Vagas em Nampula</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 EmpregosMoz.com. Todos os direitos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
