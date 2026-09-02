@@ -90,7 +90,7 @@
 <body>
 
     <div class="top-bar">
-        <span><i class="fas fa-map-marker-alt"></i> Moçambique (Maputo, Beira, Nampula)</span>
+        <span><i class="fas fa-map-marker-alt"></i> Moçambique (Maputo, Beira, Nampula, Cabo Delgado)</span>
         <span>Portal Oficial de Oportunidades</span>
     </div>
 
@@ -116,17 +116,17 @@
             <select>
                 <option value="">Todas as Localizações</option>
                 <option>Maputo</option>
-                <option>Sofala (Beira)</option>
+                <option>Cabo Delgado</option>
                 <option>Nampula</option>
-                <option>Inhambane / Gaza</option>
-                <option>Remoto / Nacional</option>
+                <option>Sofala (Beira)</option>
+                <option>Inhambane</option>
             </select>
             <select>
                 <option value="">Qualquer Setor</option>
-                <option>Administração & RH</option>
-                <option>Tecnologia / TI</option>
-                <option>Sector Automóvel & Industrial</option>
-                <option>Logística & Vendas</option>
+                <option>Administração & Secretariado</option>
+                <option>Ciências Sociais & ONG</option>
+                <option>Gestão e Assessoria</option>
+                <option>Contabilidade e Finanças</option>
             </select>
             <button type="submit"><i class="fas fa-search"></i> Pesquisar</button>
         </form>
@@ -135,8 +135,8 @@
     <div class="stats-bar">
         <div>Vagas Ativas: <strong id="total-vagas">0</strong></div>
         <div>Novas Hoje: <strong id="novas-hoje">0</strong></div>
-        <div>Empresas Parceiras: <strong>66</strong></div>
-        <div>Candidatos Registados: <strong>1.2k+</strong></div>
+        <div>Empresas Parceiras: <strong>720+</strong></div>
+        <div>Candidatos Registados: <strong>1.5k+</strong></div>
     </div>
 
     <div class="container">
@@ -146,7 +146,7 @@
                 <h3>Tipo de Contrato</h3>
                 <label><input type="checkbox" checked> Tempo Inteiro (Full-time)</label>
                 <label><input type="checkbox"> Meio Período (Part-time)</label>
-                <label><input type="checkbox"> Estágio Profissional</label>
+                <label><input type="checkbox"> Contrato Indeterminado</label>
                 <label><input type="checkbox"> Prestação de Serviços</label>
             </div>
 
@@ -165,101 +165,66 @@
                 <span style="font-size: 0.9rem; color: var(--gray);">Ordenar por: <strong>Mais Recentes</strong></span>
             </div>
 
-            <!-- NOVA VAGA: Recepcionista - Bayport -->
+            <!-- VAGA 1 -->
             <article class="job-card">
-                <div class="company-badge" style="color: #0056b3;"><i class="fas fa-concierge-bell"></i></div>
+                <div class="company-badge" style="color: #0056b3;"><i class="fas fa-user-tie"></i></div>
                 <div class="job-details">
-                    <div class="job-title">Recepcionista</div>
-                    <div class="company-name">Bayport Serviços Financeiros — Maputo</div>
+                    <div class="job-title">Assistente Pessoal e Administrativa</div>
+                    <div class="company-name">Landmark Consultoria Lda — Maputo (Cidade)</div>
                     <div class="job-tags">
-                        <span><i class="fas fa-briefcase"></i> Interno / Externo</span>
+                        <span><i class="fas fa-briefcase"></i> Administração e Secretariado</span>
                         <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
-                        <span><i class="fas fa-calendar-alt"></i> Até 15 Setembro 2026</span>
+                        <span><i class="fas fa-calendar-alt"></i> Expira: 02/09/2026</span>
                     </div>
                     <div class="job-snippet">
-                        <strong>Responsabilidades:</strong> Gestão da recepção e atendimento ao cliente, registo de faturas e reconciliações mensais, gestão de correspondências, controlo de envios e filtragem de chamadas.
+                        <strong>Resumo:</strong> Marcação, confirmação e organização de reuniões, viagens e eventos, controlo de prazos e gestão de correspondências e fornecedores.
+                    </div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Ativa</span>
+                    <a href="detalhes-vaga.html?vaga=assistente-pessoal-landmark" class="btn-apply">Candidatar-se</a>
+                </div>
+            </article>
+
+            <!-- VAGA 2 -->
+            <article class="job-card">
+                <div class="company-badge" style="color: #fd7e14;"><i class="fas fa-shield-alt"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Assistente de Consultor de Segurança</div>
+                    <div class="company-name">International NGO Safety Organisation (INSO) — Cabo Delgado</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Ciências Sociais / Jurídico</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Cabo Delgado</span>
+                        <span><i class="fas fa-calendar-alt"></i> Expira: 15/09/2026</span>
+                    </div>
+                    <div class="job-snippet">
+                        <strong>Resumo:</strong> Monitoria de incidentes em tempo real, relatórios analíticos, dados e mapeamento relacionados com segurança humanitária.
+                    </div>
+                </div>
+                <div class="job-action">
+                    <span class="time-ago">Recente</span>
+                    <a href="detalhes-vaga.html?vaga=assistente-seguranca-inso" class="btn-apply">Candidatar-se</a>
+                </div>
+            </article>
+
+            <!-- VAGA 3 -->
+            <article class="job-card">
+                <div class="company-badge" style="color: #198754;"><i class="fas fa-seedling"></i></div>
+                <div class="job-details">
+                    <div class="job-title">Técnico Comunitário</div>
+                    <div class="company-name">Peace Parks Foundation — Mabote (Inhambane)</div>
+                    <div class="job-tags">
+                        <span><i class="fas fa-briefcase"></i> Ambiente / Conservação</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Parque Nacional de Zinave</span>
+                        <span><i class="fas fa-calendar-alt"></i> Expira: 04/09/2026</span>
+                    </div>
+                    <div class="job-snippet">
+                        <strong>Resumo:</strong> Interagir com as comunidades para facilitar acordos sobre os limites comunitários do Parque e apoiar programas de educação ambiental.
                     </div>
                 </div>
                 <div class="job-action">
                     <span class="time-ago">Novo</span>
-                    <a href="detalhes-vaga.html?vaga=bayport-recepcionista" class="btn-apply">Candidatar-se</a>
-                </div>
-            </article>
-
-            <!-- NOVA VAGA: 2 Executivos(as) de Atendimento - Karingana -->
-            <article class="job-card">
-                <div class="company-badge" style="color: #fd7e14;"><i class="fas fa-bullhorn"></i></div>
-                <div class="job-details">
-                    <div class="job-title">2 Executivos(as) de Atendimento</div>
-                    <div class="company-name">Karinga – Agência de Comunicação — Maputo</div>
-                    <div class="job-tags">
-                        <span><i class="fas fa-briefcase"></i> Comunicação & Marketing</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
-                        <span><i class="fas fa-users"></i> Gestão de Contas</span>
-                    </div>
-                    <div class="job-snippet">
-                        <strong>Responsabilidades:</strong> Gestão diária de clientes, visão de negócio, harmonia interna e transformação de briefings em planos de ação.
-                    </div>
-                </div>
-                <div class="job-action">
-                    <span class="time-ago">Agora mesmo</span>
-                    <a href="detalhes-vaga.html?vaga=karingana-executivos" class="btn-apply">Candidatar-se</a>
-                </div>
-            </article>
-
-            <!-- Vaga 2 -->
-            <article class="job-card">
-                <div class="company-badge"><i class="fas fa-wallet"></i></div>
-                <div class="job-details">
-                    <div class="job-title">Assistente de BackOffice M-Pesa</div>
-                    <div class="company-name">Telecomunicações & Finanças Lda — Maputo</div>
-                    <div class="job-tags">
-                        <span><i class="fas fa-briefcase"></i> Tempo Inteiro</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Maputo</span>
-                        <span><i class="fas fa-money-bill-wave"></i> Salário Compatível</span>
-                    </div>
-                    <div class="job-snippet">Profissional dinâmico para suporte operacional, gestão de bilhética USSD e relatórios diários de transações financeiras.</div>
-                </div>
-                <div class="job-action">
-                    <span class="time-ago">Há 2 horas</span>
-                    <a href="detalhes-vaga.html?vaga=backoffice-mpesa" class="btn-apply">Candidatar-se</a>
-                </div>
-            </article>
-
-            <!-- Vaga 3 -->
-            <article class="job-card">
-                <div class="company-badge" style="color: #0d6efd;"><i class="fas fa-laptop-code"></i></div>
-                <div class="job-details">
-                    <div class="job-title">Analista de Dados & Relatórios (Excel / Power BI)</div>
-                    <div class="company-name">Grupo Empresarial Moçambicano — Beira</div>
-                    <div class="job-tags">
-                        <span><i class="fas fa-briefcase"></i> Híbrido</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Sofala (Beira)</span>
-                        <span><i class="fas fa-chart-line"></i> Analítico</span>
-                    </div>
-                    <div class="job-snippet">Automatização de dashboards de desempenho, relatórios operacionais mensais e consolidação de indicadores de suporte.</div>
-                </div>
-                <div class="job-action">
-                    <span class="time-ago">Há 5 horas</span>
-                    <a href="detalhes-vaga.html?vaga=analista-dados" class="btn-apply">Candidatar-se</a>
-                </div>
-            </article>
-
-            <!-- Vaga 4 -->
-            <article class="job-card">
-                <div class="company-badge" style="color: #198754;"><i class="fas fa-truck-loading"></i></div>
-                <div class="job-details">
-                    <div class="job-title">Supervisor de Logística e Expedição</div>
-                    <div class="company-name">Logística & Distribuição Centro — Nampula</div>
-                    <div class="job-tags">
-                        <span><i class="fas fa-briefcase"></i> Tempo Inteiro</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Nampula</span>
-                    </div>
-                    <div class="job-snippet">Gestão de armazém, controlo rigoroso de inventário e supervisão da equipe de distribuição regional no norte do país.</div>
-                </div>
-                <div class="job-action">
-                    <span class="time-ago">Ontem</span>
-                    <a href="detalhes-vaga.html?vaga=supervisor-logistica" class="btn-apply">Candidatar-se</a>
+                    <a href="detalhes-vaga.html?vaga=tecnico-comunitario-peace-parks" class="btn-apply">Candidatar-se</a>
                 </div>
             </article>
 
@@ -284,7 +249,7 @@
                 <h4>Províncias</h4>
                 <ul>
                     <li><a href="#">Vagas em Maputo</a></li>
-                    <li><a href="#">Vagas em Sofala (Beira)</a></li>
+                    <li><a href="#">Vagas em Cabo Delgado</a></li>
                     <li><a href="#">Vagas em Nampula</a></li>
                 </ul>
             </div>
