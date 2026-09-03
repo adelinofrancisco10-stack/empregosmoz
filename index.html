@@ -2,19 +2,328 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>EmpregosMoz - Brevemente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpregosMoz - O Seu Portal de Emprego em Moçambique</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body { background: #f8f9fa; font-family: Arial, sans-serif; text-align: center; padding-top: 15vh; color: #333; }
-        h1 { color: #0056b3; font-size: 2.5rem; margin-bottom: 10px; }
-        p { font-size: 1.1rem; color: #666; }
-        .box { background: #fff; max-width: 600px; margin: 0 auto; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body>
-    <div class="box">
-        <h1>Empregos<span>Moz</span></h1>
-        <p>O nosso portal está a ser preparado para lhe trazer as melhores oportunidades em Moçambique.</p>
-        <p><strong>Brevemente online!</strong></p>
-    </div>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-blue-600 flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase text-blue-600"></i>
+                        <span>Empregos<span class="text-emerald-500">Moz</span></span>
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Vagas de Emprego</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 transition">Empresas</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 transition">Estágios & Cursos</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 transition">Dicas de Carreira</a>
+                </nav>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-sm font-medium text-gray-600 hover:text-blue-600">Entrar</a>
+                    <a href="#" class="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-sm">
+                        + Publicar Vaga
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-2">
+            <a href="#" class="block py-2 text-blue-600 font-semibold">Vagas de Emprego</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Empresas</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Estágios & Cursos</a>
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Dicas de Carreira</a>
+            <hr class="my-2 border-gray-100">
+            <a href="#" class="block py-2 text-gray-600 hover:text-blue-600">Entrar</a>
+            <a href="#" class="block text-center bg-blue-600 text-white py-2 rounded-lg font-medium mt-2">
+                + Publicar Vaga
+            </a>
+        </div>
+    </header>
+
+    <section class="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white py-12 lg:py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+                Encontre as Melhores Vagas em Moçambique
+            </h1>
+            <p class="text-blue-100 text-base md:text-lg max-w-2xl mx-auto">
+                Oportunidades de emprego diárias em Maputo, Beira, Nampula e em todo o país.
+            </p>
+
+            <form class="bg-white p-3 md:p-4 rounded-2xl shadow-xl flex flex-col md:flex-row gap-3 mt-6 text-gray-700">
+                <div class="flex-1 flex items-center bg-gray-100 px-3 py-2 rounded-xl">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 mr-2"></i>
+                    <input type="text" placeholder="Cargo, empresa ou palavra-chave..." class="bg-transparent w-full focus:outline-none text-sm">
+                </div>
+
+                <div class="flex-1 flex items-center bg-gray-100 px-3 py-2 rounded-xl">
+                    <i class="fa-solid fa-location-dot text-gray-400 mr-2"></i>
+                    <select class="bg-transparent w-full focus:outline-none text-sm text-gray-600">
+                        <option value="">Todas as Localizações</option>
+                        <option value="maputo">Cidade de Maputo</option>
+                        <option value="provincia-maputo">Província de Maputo (Matola)</option>
+                        <option value="beira">Sofala (Beira)</option>
+                        <option value="nampula">Nampula</option>
+                        <option value="tete">Tete</option>
+                        <option value="cabo-delgado">Cabo Delgado (Pemba)</option>
+                        <option value="remoto">Trabalho Remoto</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-6 py-3 rounded-xl transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-search"></i>
+                    <span>Buscar Vagas</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-8">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">Categorias em Destaque</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+            <a href="#" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition text-center group">
+                <i class="fa-solid fa-hand-holding-heart text-2xl text-blue-600 mb-2 group-hover:scale-110 transition"></i>
+                <h3 class="text-xs font-semibold text-gray-700">ONGs & Humanitário</h3>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition text-center group">
+                <i class="fa-solid fa-laptop-code text-2xl text-blue-600 mb-2 group-hover:scale-110 transition"></i>
+                <h3 class="text-xs font-semibold text-gray-700">Tecnologia & TI</h3>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition text-center group">
+                <i class="fa-solid fa-calculator text-2xl text-blue-600 mb-2 group-hover:scale-110 transition"></i>
+                <h3 class="text-xs font-semibold text-gray-700">Contabilidade & Finanças</h3>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition text-center group">
+                <i class="fa-solid fa-truck-fast text-2xl text-blue-600 mb-2 group-hover:scale-110 transition"></i>
+                <h3 class="text-xs font-semibold text-gray-700">Logística & Frota</h3>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition text-center group">
+                <i class="fa-solid fa-user-tie text-2xl text-blue-600 mb-2 group-hover:scale-110 transition"></i>
+                <h3 class="text-xs font-semibold text-gray-700">Administração</h3>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition text-center group">
+                <i class="fa-solid fa-toolbox text-2xl text-blue-600 mb-2 group-hover:scale-110 transition"></i>
+                <h3 class="text-xs font-semibold text-gray-700">Engenharia & Minas</h3>
+            </a>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 py-4 flex-grow w-full">
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900">Últimas Vagas Anunciadas</h2>
+                <p class="text-sm text-gray-500">Atualizado diariamente em Moçambique</p>
+            </div>
+            <a href="#" class="text-sm font-semibold text-blue-600 hover:underline">Ver todas (120+)</a>
+        </div>
+
+        <div class="space-y-4">
+
+            <div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        NGO
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-0.5 rounded-full font-medium">Urgente</span>
+                            <span class="text-xs text-gray-400">Há 2 horas</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mt-1 hover:text-blue-600 cursor-pointer">
+                            Oficial de Monitoria e Avaliação (M&E)
+                        </h3>
+                        <div class="flex flex-wrap gap-y-1 gap-x-4 text-xs text-gray-500 mt-2">
+                            <span><i class="fa-solid fa-building mr-1"></i> Organização Humanitária</span>
+                            <span><i class="fa-solid fa-location-dot mr-1"></i> Pemba, Cabo Delgado</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> Tempo Inteiro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between md:justify-end gap-3 pt-3 md:pt-0 border-t md:border-0 border-gray-100">
+                    <span class="text-xs text-gray-500">Prazo: 15 Set</span>
+                    <a href="#" class="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-xl text-sm font-medium transition">
+                        Candidatar-se
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        LOG
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded-full font-medium">Destaque</span>
+                            <span class="text-xs text-gray-400">Há 5 horas</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mt-1 hover:text-blue-600 cursor-pointer">
+                            Assistente de Logística e Compras
+                        </h3>
+                        <div class="flex flex-wrap gap-y-1 gap-x-4 text-xs text-gray-500 mt-2">
+                            <span><i class="fa-solid fa-building mr-1"></i> Empresa de Transportes SA</span>
+                            <span><i class="fa-solid fa-location-dot mr-1"></i> Beira, Sofala</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> Tempo Inteiro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between md:justify-end gap-3 pt-3 md:pt-0 border-t md:border-0 border-gray-100">
+                    <span class="text-xs text-gray-500">Prazo: 20 Set</span>
+                    <a href="#" class="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-xl text-sm font-medium transition">
+                        Candidatar-se
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        FIN
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-2.5 py-0.5 rounded-full font-medium">Novo</span>
+                            <span class="text-xs text-gray-400">Há 1 dia</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mt-1 hover:text-blue-600 cursor-pointer">
+                            Contabilista Sénior (M/F)
+                        </h3>
+                        <div class="flex flex-wrap gap-y-1 gap-x-4 text-xs text-gray-500 mt-2">
+                            <span><i class="fa-solid fa-building mr-1"></i> Grupo Empresarial</span>
+                            <span><i class="fa-solid fa-location-dot mr-1"></i> Maputo Cidade</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> Tempo Inteiro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between md:justify-end gap-3 pt-3 md:pt-0 border-t md:border-0 border-gray-100">
+                    <span class="text-xs text-gray-500">Prazo: 18 Set</span>
+                    <a href="#" class="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-xl text-sm font-medium transition">
+                        Candidatar-se
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        IT
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-2.5 py-0.5 rounded-full font-medium">Remoto / Híbrido</span>
+                            <span class="text-xs text-gray-400">Há 2 dias</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mt-1 hover:text-blue-600 cursor-pointer">
+                            Técnico de Suporte de TI & Redes
+                        </h3>
+                        <div class="flex flex-wrap gap-y-1 gap-x-4 text-xs text-gray-500 mt-2">
+                            <span><i class="fa-solid fa-building mr-1"></i> Tech Moz Solutions</span>
+                            <span><i class="fa-solid fa-location-dot mr-1"></i> Nampula</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> Tempo Inteiro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between md:justify-end gap-3 pt-3 md:pt-0 border-t md:border-0 border-gray-100">
+                    <span class="text-xs text-gray-500">Prazo: 25 Set</span>
+                    <a href="#" class="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-xl text-sm font-medium transition">
+                        Candidatar-se
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-8">
+            <button class="bg-white border border-gray-300 text-gray-700 font-medium px-6 py-3 rounded-xl hover:bg-gray-50 transition shadow-sm">
+                Carregar mais vagas...
+            </button>
+        </div>
+    </main>
+
+    <section class="bg-blue-50 border-y border-blue-100 my-8 py-10 px-4">
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+            <i class="fa-regular fa-envelope-open text-4xl text-blue-600"></i>
+            <h2 class="text-2xl font-bold text-gray-900">Receba as últimas vagas no seu e-mail</h2>
+            <p class="text-gray-600 text-sm max-w-lg mx-auto">Inscreva-se gratuitamente e seja o primeiro a saber das novas oportunidades em Moçambique.</p>
+            <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto pt-2">
+                <input type="email" placeholder="O seu e-mail melhor..." class="px-4 py-3 rounded-xl border border-gray-300 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" required>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-xl transition text-sm">
+                    Subscrever
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <a href="#" class="text-2xl font-bold text-white flex items-center gap-2 mb-3">
+                    <i class="fa-solid fa-briefcase text-blue-500"></i>
+                    <span>Empregos<span class="text-emerald-500">Moz</span></span>
+                </a>
+                <p class="text-xs leading-relaxed">O portal líder em oportunidades de emprego, estágios e carreiras em Moçambique.</p>
+            </div>
+            <div>
+                <h4 class="text-white text-sm font-semibold mb-3">Para Candidatos</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-white transition">Procurar Vagas</a></li>
+                    <li><a href="#" class="hover:text-white transition">Vagas em Maputo</a></li>
+                    <li><a href="#" class="hover:text-white transition">Vagas nas ONGs</a></li>
+                    <li><a href="#" class="hover:text-white transition">Modelos de CV</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-sm font-semibold mb-3">Para Recrutadores</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-white transition">Publicar Anúncio</a></li>
+                    <li><a href="#" class="hover:text-white transition">Planos e Preços</a></li>
+                    <li><a href="#" class="hover:text-white transition">Banco de CVs</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-sm font-semibold mb-3">Contactos & Redes</h4>
+                <div class="flex space-x-3 mb-3">
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+                </div>
+                <p class="text-xs">Maputo, Moçambique</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-gray-800 text-center text-xs text-gray-500">
+            &copy; 2026 EmpregosMoz. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
